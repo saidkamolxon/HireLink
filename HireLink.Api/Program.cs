@@ -13,31 +13,37 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Logging
 builder.Logging.ClearProviders();
 builder.Host.UseSerilog((context, loggerConfig) =>
     loggerConfig.ReadFrom.Configuration(context.Configuration));
 
-// Add services to the container.
+// Contexts
 builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Fluent validation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CandidateUpsertDtoValidator>();
 
+// Mappers
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+// Repositories
 builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
+
+// Caching
 builder.Services.AddMemoryCache();
 builder.Services.Decorate<ICandidateRepository, CachedCandidateRepository>();
 
+// Services
 builder.Services.AddScoped<ICandidateService, CandidateService>();
 
+// Controllers
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Swagger Configuration
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
