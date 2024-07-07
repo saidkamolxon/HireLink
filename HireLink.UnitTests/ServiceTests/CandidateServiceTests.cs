@@ -26,7 +26,7 @@ public class CandidateServiceTests
     }
 
     [Fact]
-    public async Task InsertAsync_ShouldReturnTrue()
+    public async Task InsertAsync_ShouldReturnInsertedCandidate()
     {
         // Arrange
         var candidate = new CandidateUpsertDto
@@ -54,7 +54,7 @@ public class CandidateServiceTests
     }
 
     [Fact]
-    public async Task UpdateAsync_ShouldReturnTrue()
+    public async Task UpdateAsync_ShouldReturnUpdatedCandidate()
     {
         var email = "saidkamolxon@yahoo.com";
 
@@ -109,9 +109,7 @@ public class CandidateServiceTests
 
         // Act & Assert
         var exception = await Assert.ThrowsAsync<ValidationException>(async () =>
-        {
-            await this.service.UpsertAsync(dto);
-        });
+            await this.service.UpsertAsync(dto));
 
         var errors = exception.Errors.ToList();
 
