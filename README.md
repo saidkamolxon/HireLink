@@ -1,5 +1,5 @@
 === DETAILS ===
-🔸 Developed using .NET 8 with EF Core 8.0.6, requiring .NET SDK 8 for execution.
+🔸 Developed using .NET 8 with EF Core 8.0.6, requires .NET SDK 8 for execution.
 🔸 Automatically migrates the database on app launch in Visual Studio, eliminating the need for manual migration.
 🔸 Used xUnit for unit testing and Moq for mocking.
 🔸 Developed tests for the validator and the service; controller testing was omitted as I believe integration tests are typically more suitable for controllers in real projects, offering better coverage.
@@ -12,4 +12,4 @@
 🔸 Assumed that a predictable result pattern indicating whether a candidate was created or updated would be beneficial, but I was unsure if this assumption was correct.
 
 === TOTAL TIME ===
-🔸 Approximately 7 hours spent (~6.5 hours on development, ~0.5 hours on documentation).
+🔸 Approximately 7 hours spent (~6.5 hours on development, ~0.5 hours on notes).
