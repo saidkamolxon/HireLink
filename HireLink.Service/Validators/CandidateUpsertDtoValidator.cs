@@ -8,15 +8,15 @@ public class CandidateUpsertDtoValidator : AbstractValidator<CandidateUpsertDto>
     public CandidateUpsertDtoValidator()
     {
         RuleFor(c => c.FirstName)
-            .NotEmpty();
+            .Length(3, 50);
 
         RuleFor(c => c.LastName)
-            .NotEmpty();
+            .Length(3, 50);
 
         RuleFor(c => c.Email)
             .EmailAddress();
 
         RuleFor(c => c.Comment)
-            .NotEmpty();
+            .Length(10, 1000);
     }
 }
