@@ -1,12 +1,11 @@
 ﻿using HireLink.Api.Errors;
-using Microsoft.AspNetCore.Diagnostics;
 
 namespace HireLink.Api.Middleware;
 
-public class ExceptionMiddleware(RequestDelegate request, ILogger<ExceptionHandlerMiddleware> logger)
+public class ExceptionMiddleware(RequestDelegate request, ILogger<ExceptionMiddleware> logger)
 {
     public readonly RequestDelegate request = request;
-    public readonly ILogger<ExceptionHandlerMiddleware> logger = logger;
+    public readonly ILogger<ExceptionMiddleware> logger = logger;
 
     public async Task Invoke(HttpContext context)
     {
