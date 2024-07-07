@@ -31,6 +31,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<CandidateUpsertDtoValidator
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
+builder.Services.AddMemoryCache();
+builder.Services.Decorate<ICandidateRepository, CachedCandidateRepository>();
+
 builder.Services.AddScoped<ICandidateService, CandidateService>();
 
 builder.Services.AddControllers();
