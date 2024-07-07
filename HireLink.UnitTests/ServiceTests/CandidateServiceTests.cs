@@ -116,7 +116,7 @@ public class CandidateServiceTests
         var errors = exception.Errors.ToList();
 
         Assert.NotEmpty(errors);
-        Assert.Equal(5, errors.Count); // 1 firstname + 1 lastname + 2 email + 1 comment exceptions
+        Assert.Equal(4, errors.Count); // 1 firstname + 1 lastname + 1 email + 1 comment exceptions
         Assert.Contains("FirstName", exception.Errors.Select(e => e.PropertyName));
         Assert.Contains("LastName", exception.Errors.Select(e => e.PropertyName));
         Assert.Contains("Email", exception.Errors.Select(e => e.PropertyName));

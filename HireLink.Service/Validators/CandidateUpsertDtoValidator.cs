@@ -14,7 +14,6 @@ public class CandidateUpsertDtoValidator : AbstractValidator<CandidateUpsertDto>
             .NotEmpty();
 
         RuleFor(c => c.Email)
-            .NotEmpty()
             .EmailAddress();
 
         RuleFor(c => c.Comment)
