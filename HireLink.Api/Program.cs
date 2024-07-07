@@ -9,8 +9,13 @@ using HireLink.Service.Mappers;
 using HireLink.Service.Services;
 using HireLink.Service.Validators;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Host.UseSerilog((context, loggerConfig) =>
+    loggerConfig.ReadFrom.Configuration(context.Configuration));
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
