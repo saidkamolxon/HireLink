@@ -5,8 +5,8 @@ public record CandidateUpsertDto(
     string LastName,
     string Email,
     string Comment,
-    string? Phone = default,
-    string? CallTimeInterval = default,
+    string? PhoneNumber = default,
+    string? TimeToCall = default,
     string? LinkedinUrl = default,
     string? GithubUrl = default
 );
